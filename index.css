@@ -1,0 +1,61 @@
+*{          /*  esta linea sirve para tomar todo el contenido html e importarlo en esta pagina*/
+    font-family: 'Times New Roman', serif;
+    color: white;
+}
+
+body{
+    margin :0;
+    background-color: bisque;
+}
+
+.container{        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* vh total de altura*/
+}
+.calculadora{
+display: grid;
+grid-template-columns: repeat(4,60px); /*  establece la cuadricula de columnas en 4 y las repite */
+grid-template-rows: 160px repeat(5,60px) ; /*  establece la cuadricula de columnas en 5 y las repite */
+background-color:#8379e0 ;
+padding: 15px;
+border-radius: 33px;
+box-shadow: 8px 8px 0px 7px #00000033;
+}
+button{
+    cursor: pointer;
+    margin: 7px;
+    padding: 0%;
+    border-radius: 33px;
+    font-size: 1.5em;
+    border: none;
+    background-color: #8379e0;
+    box-shadow: 3px 5px 10px -3px #00000040,-2px -2px 10px 3px #cc9fc2 ;
+}
+button:active{
+    background-color: #b372a4;
+}
+.pantalla{
+    grid-column: 1/ -1;
+    padding: 16px;
+    display: flex;
+    margin: 10px 10px 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #1a1518;
+    border-radius: 20px;
+    text-align: right;
+    justify-content: space-between;
+    word-break: break-all;
+    box-shadow: 0px 0px 0px 10px #00000033;
+}
+.col-2{
+    grid-column: span 2;
+}
+#val1{
+    font-size: 1.5em;
+}
+#val2{
+    font-size: 2em;
+}
