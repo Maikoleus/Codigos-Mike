@@ -2,10 +2,13 @@ class Display {
     constructor(displayValorAnterior, displayValorActual) {
         this.displayAnterior = displayValorAnterior;
         this.displayActual = displayValorActual;
+        this.historialDiv = document.getElementById('historial'); 
         this.calculadora = new Calculadora();
         this.valorActual = "";
         this.valorAnterior = "";
         this.Operacion = undefined;
+        this.historial = []; 
+
         this.signos = {
             suma: '+',
             resta: '-',
@@ -23,6 +26,8 @@ class Display {
     imprimirValores() {
         this.displayActual.textContent = this.valorActual;  
         this.displayAnterior.textContent =  `${this.valorAnterior} ${this.signos[this.Operacion] || ''} `;
+        this.mostrarHistorial(); 
+
     }
 borrar(){
        this.valorActual = this.valorActual.toString().slice(0,-1);
@@ -35,7 +40,13 @@ borrarTodo(){
     this.valorActual ="";
     this.valorAnterior="";
     this.Operacion = undefined;
+    this,this.historial =[];
+
+    if (this.historialDiv) {
+        this.historialDiv.innerHTML = ""; 
+    }
     this.imprimirValores();
+    
 }
 calcular(){
     const valorAnterior = parseFloat(this.valorAnterior);
@@ -43,6 +54,8 @@ calcular(){
 
      if( isNaN( valorActual) || isNaN(valorAnterior)) return
      this.valorActual = this.calculadora[ this.Operacion](valorAnterior, valorActual);
+     this.historial.push(`${valorAnterior} ${this.signos[this.Operacion]} ${valorActual} = ${this.valorActual}`);
+
 
 }
 
@@ -52,5 +65,10 @@ computar(tipo){
    this.valorAnterior = this.valorActual || this.valorAnterior; 
    this.valorActual ="";
    this.imprimirValores();
+}
+
+mostrarHistorial() {
+
+    this.historialDiv.innerHTML = this.historial.slice(-3).join('<br>');
 }
 }
