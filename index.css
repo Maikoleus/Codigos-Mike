@@ -1,61 +1,114 @@
-*{          /*  esta linea sirve para tomar todo el contenido html e importarlo en esta pagina*/
-    font-family: 'Times New Roman', serif;
-    color: white;
+* {  
+    font-family: 'Roboto', sans-serif;
+    color: black; 
+    transition: color 0.9s ease;
+}  
+
+body {  
+    margin: 0;  
+    background-color: #f0f0f0;
+    transition: background-color 0.9s ease;   
+}  
+
+.contenedor-theme{
+    text-align: center;
 }
 
-body{
-    margin :0;
-    background-color: bisque;
-}
+.container {  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: 75vh;
+}  
 
-.container{        
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* vh total de altura*/
+.calculadora {  
+    display: grid;  
+    grid-template-columns: repeat(4, 60px); /* Cuadrícula de columnas en 4 */  
+    grid-template-rows: 160px repeat(5, 60px); /* Cuadrícula de filas en 5 */  
+    background-color: #ffffff; 
+    padding: 15px;  
+    border-radius: 33px;  
+    box-shadow: 8px 8px 0px 7px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.8s ease, box-shadow 0.8s ease; 
+}  
+
+button#theme-toggle {  
+    width: fit-content;  
+    padding: 8px; 
+    margin-top: 15px;
+    background-color: #ff8000;   
+    color: white;   
+    transition: background-color 0.8s ease; /* Transición suave para el botón */  
+}  
+
+button#theme-toggle:hover{
+    background-color: #2617078f;   
 }
-.calculadora{
-display: grid;
-grid-template-columns: repeat(4,60px); /*  establece la cuadricula de columnas en 4 y las repite */
-grid-template-rows: 160px repeat(5,60px) ; /*  establece la cuadricula de columnas en 5 y las repite */
-background-color:#8379e0 ;
-padding: 15px;
-border-radius: 33px;
-box-shadow: 8px 8px 0px 7px #00000033;
-}
-button{
-    cursor: pointer;
-    margin: 7px;
-    padding: 0%;
-    border-radius: 33px;
-    font-size: 1.5em;
-    border: none;
-    background-color: #8379e0;
-    box-shadow: 3px 5px 10px -3px #00000040,-2px -2px 10px 3px #cc9fc2 ;
-}
-button:active{
-    background-color: #b372a4;
-}
-.pantalla{
-    grid-column: 1/ -1;
-    padding: 16px;
-    display: flex;
-    margin: 10px 10px 20px;
-    flex-direction: column;
-    align-items: flex-end;
-    background-color: #1a1518;
-    border-radius: 20px;
-    text-align: right;
-    justify-content: space-between;
-    word-break: break-all;
-    box-shadow: 0px 0px 0px 10px #00000033;
-}
-.col-2{
-    grid-column: span 2;
-}
-#val1{
-    font-size: 1.5em;
-}
-#val2{
-    font-size: 2em;
-}
+button {  
+    cursor: pointer;  
+    margin: 7px;  
+    padding: 0%;  
+    border-radius: 33px;  
+    font-size: 1.5em;  
+    border: none;  
+    background-color: #e7e7e7;
+    color: black; 
+    box-shadow: 3px 5px 10px -3px rgba(0, 0, 0, 0.2), -2px -2px 10px 3px rgba(144, 136, 121, 0.5);  
+    transition: background-color 0.5s ease, color 0.5s ease;
+}  
+
+button:active {  
+    background-color: #ff8000; 
+}  
+
+.pantalla {  
+    grid-column: 1 / -1;  
+    padding: 16px;  
+    display: flex;  
+    margin: 10px 10px 20px;  
+    flex-direction: column;  
+    align-items: flex-end;  
+    background-color: #ffffff; 
+    border-radius: 20px;  
+    text-align: right;  
+    justify-content: space-between;  
+    word-break: break-all;  
+    box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.5s ease; 
+}  
+
+.col-2 {  
+    grid-column: span 2;  
+}  
+
+#val1 {  
+    font-size: 1.5em;  
+}  
+
+#val2 {  
+    font-size: 2em;  
+}  
+
+/*  tema oscuro */  
+body.dark {  
+    background-color: #181818; 
+    color: white; 
+}  
+
+.calculadora.dark {  
+    background-color: #242424; /* Fondo oscuro para la calculadora */  
+    box-shadow: 8px 8px 0px 7px rgba(255, 255, 255, 0.1); /* Sombra más suave para tema oscuro */  
+}  
+
+button.dark {  
+    background-color: #3a3a3a; /* Fondo oscuro para botones */  
+    color: white; /* Texto blanco en botones */  
+}  
+
+button.dark:active {  
+    background-color: #555; /* Fondo de botón oscuro al hacer clic */  
+}  
+
+.pantalla.dark {  
+    background-color: #333; /* Fondo oscuro para la pantalla */  
+}  
